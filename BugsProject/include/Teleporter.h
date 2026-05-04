@@ -1,8 +1,0 @@
-//
-// Created by anast on 04/05/2026.
-//
-
-#ifndef BUGSPROJECT_TELEPORTER_H
-#define BUGSPROJECT_TELEPORTER_H
-
-#endif //BUGSPROJECT_TELEPORTER_H
