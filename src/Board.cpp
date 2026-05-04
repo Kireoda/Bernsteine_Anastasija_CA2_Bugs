@@ -229,20 +229,30 @@ void Board::resolveFights() {
             std::cout << "  " << b1->getId()
                     << " vs " << b2->getId() << "\n";
 
-            // 3 rounds
+            // fighting rounds
             for (int r = 0; r < 3; r++) {
+
                 int dmg1 = rand() % 6;
                 int dmg2 = rand() % 6;
 
                 b1->takeDamage(dmg2);
                 b2->takeDamage(dmg1);
 
-                if (!b1->isAlive()) {
+                bool b1Dead = !b1->isAlive();
+                bool b2Dead = !b2->isAlive();
+
+                if (b1Dead && b2Dead) {
+                    b1->setKiller(b2->getId());
+                    b2->setKiller(b1->getId());
+                    break;
+                }
+
+                if (b1Dead) {
                     b1->setKiller(b2->getId());
                     break;
                 }
 
-                if (!b2->isAlive()) {
+                if (b2Dead) {
                     b2->setKiller(b1->getId());
                     break;
                 }

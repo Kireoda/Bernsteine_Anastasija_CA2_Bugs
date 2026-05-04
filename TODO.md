@@ -129,17 +129,17 @@
 ---
 ## 10. Fight / Eat System (Feature 8)
 - [x] Group bugs by cell: `map<pair<int,int>, vector<Bug*>>`
-- [ ] For each cell with ≥2 bugs:
-    - [ ] Shuffle bugs randomly
-    - [ ] Pair them (1v1)
+- [x] For each cell with ≥2 bugs:
+    - [x] Shuffle bugs randomly
+    - [x] Pair them (1v1)
 ### Fight Logic
-- [ ] Each fight = 3 rounds
-- [ ] Each round:
-    - [ ] Both take random damage (0–5)
-- [ ] If health ≤ 0:
-    - [ ] Set alive = false
-    - [ ] Record killer ID
-- [ ] If odd number → last bug survives
+- [x] Each fight = 3 rounds
+- [x] Each round:
+    - [x] Both take random damage (0–5)
+- [x] If health ≤ 0:
+    - [x] Set alive = false
+    - [x] Record killer ID
+- [x] If odd number → last bug survives
 ---
 ## 11. Simulation (Feature 9)
 - [ ] While `countAlive() > 1`:

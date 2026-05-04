@@ -1,8 +1,9 @@
 #include "Bug.h"
 
 Bug::Bug(int id, int x, int y, Direction dir, int health)
-    : id(id), position({x, y}), direction(dir), health(health), alive(true), killerId(-1)
+    : id(id), position({x, y}), direction(dir), health(health), alive(true)
 {
+    killerId = -1;
     path.push_back(position);
 }
 
