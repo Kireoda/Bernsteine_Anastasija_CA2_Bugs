@@ -39,6 +39,8 @@ void showMenu() {
     std::cout << "7. Run simulation\n";
     std::cout << "8. Test crawler\n";
     std::cout << "9. Test hopper\n";
+    std::cout << "10. Test fights\n";
+    std::cout << "11. Test dead bug behaviour\n";
     std::cout << "Choose option: ";
 }
 
@@ -136,6 +138,13 @@ int main() {
                 }
                 break;
             }
+            case 10:
+                board.testFights();
+                break;
+
+            case 11:
+                board.testDeadBehavior();
+                break;
 
             case 0:
                 std::cout << "Exiting...\n";

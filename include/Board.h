@@ -20,6 +20,8 @@ public:
     void findBugById(int id) const;
     void tapBoard();
     void resolveFights();
+    void testFights();
+    void testDeadBehavior();
 
     // Utility
     void clear();

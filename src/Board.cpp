@@ -260,3 +260,62 @@ void Board::resolveFights() {
         }
     }
 }
+
+void Board::testDeadBehavior() {
+    if (bugs.empty()) {
+        std::cout << "No bugs loaded\n";
+        return;
+    }
+
+    // Pick first bug and kill it
+    Bug *deadBug = bugs[0];
+    deadBug->takeDamage(999); // guaranteed death
+
+    std::cout << "Killed bug ID: " << deadBug->getId() << "\n";
+
+    auto before = deadBug->getPosition();
+
+    // Tap board (movement + fights)
+    tapBoard();
+
+    auto after = deadBug->getPosition();
+
+    std::cout << "Position before: (" << before.first << "," << before.second << ")\n";
+    std::cout << "Position after : (" << after.first << "," << after.second << ")\n";
+
+    if (before == after) {
+        std::cout << "Dead bug did NOT move \n";
+    } else {
+        std::cout << "ERROR: Dead bug moved \n";
+    }
+
+    std::cout << "Dead bug status: "
+              << (deadBug->isAlive() ? "Alive" : "Dead") << "\n";
+}
+
+void Board::testFights() {
+    if (bugs.size() < 3) {
+        std::cout << "Need at least 3 bugs\n";
+        return;
+    }
+
+    // Force several bugs into same cell (3+ for odd case)
+    std::pair<int, int> cell = {5, 5};
+
+    int count = 0;
+    for (auto bug: bugs) {
+        if (bug->isAlive()) {
+            bug->setPosition(cell.first, cell.second);
+            count++;
+            if (count >= 4) break; // ensures 2 pairs (and can leave odd if you change this)
+        }
+    }
+
+    std::cout << "Forced " << count << " bugs into (5,5)\n";
+
+    // Run fights only (no movement)
+    resolveFights();
+
+    // Show result
+    displayAllBugs();
+}

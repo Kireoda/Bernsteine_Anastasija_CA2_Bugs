@@ -72,7 +72,7 @@
 - [x] Store in vector
 ### Memory Management
 - [x] Implement function to delete all bugs
-- [x] Ensure no memory leaks
+- [ ] Ensure no memory leaks
 ---
 ## 5. Menu System (8 Options)
 - [x] 1. Initialize – clear + reload from file
@@ -166,7 +166,7 @@
 ## 14. Testing & Edge Cases
 - [x] Test file loading
 - [x] Test edge movement (corners, walls)
-- [ ] Test hopper partial movement
+- [x] Test hopper partial movement
 - [ ] Test fights (2, 3, 4+ bugs)
 - [ ] Ensure dead bugs:
     - [ ] Don’t move
