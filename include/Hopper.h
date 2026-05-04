@@ -1,8 +1,18 @@
-//
-// Created by anast on 04/05/2026.
-//
+#ifndef HOPPER_H
+#define HOPPER_H
 
-#ifndef BUGSPROJECT_HOPPER_H
-#define BUGSPROJECT_HOPPER_H
+#include "Bug.h"
 
-#endif //BUGSPROJECT_HOPPER_H
+class Hopper : public Bug {
+private:
+    int hopLength;
+
+public:
+    Hopper(int id, int x, int y, Direction dir, int health, int hopLength);
+
+    void move() override;
+
+    int getHopLength() const;
+};
+
+#endif
