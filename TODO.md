@@ -1,4 +1,4 @@
-# 🐞 A Bug’s Life Project – Full TODO List
+#  A Bug’s Life Project – Full TODO List
 ---
 ## 1. Setup & Version Control
 - [x] Create project folder: `Lastname_Firstname_CA2_Bugs`
@@ -167,10 +167,10 @@
 - [x] Test file loading
 - [x] Test edge movement (corners, walls)
 - [x] Test hopper partial movement
-- [ ] Test fights (2, 3, 4+ bugs)
-- [ ] Ensure dead bugs:
-    - [ ] Don’t move
-    - [ ] Don’t fight
+- [x] Test fights (2, 3, 4+ bugs)
+- [x] Ensure dead bugs:
+    - [x] Don’t move
+    - [x] Don’t fight
 - [ ] Run memory checker (Valgrind or sanitizer)
 ---
 ## 15. Code Quality (Marks!)
