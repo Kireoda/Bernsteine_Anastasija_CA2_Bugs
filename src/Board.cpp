@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include <vector>
 #include <map>
+#include <algorithm>
+#include <random>
 
 #include <fstream>
 #include <sstream>
@@ -61,7 +63,7 @@ void Board::tapBoard() {
 
         bug->move();
     }
-
+    resolveFights();
     std::cout << "Tap complete - bugs have moved \n";
 }
 
@@ -197,5 +199,49 @@ void Board::displayCells() const {
             }
         }
         std::cout << "\n";
+    }
+}
+
+void Board::resolveFights() {
+    auto cellMap = buildCellMap();
+
+    std::random_device rd;
+    std::mt19937 g(rd());
+
+    for (auto &[cell, bugsInCell]: cellMap) {
+        if (bugsInCell.size() < 2) continue;
+
+        std::cout << "\nFight at (" << cell.first << "," << cell.second << ")\n";
+
+        // Shuffle bugs
+        std::shuffle(bugsInCell.begin(), bugsInCell.end(), g);
+
+        // Pair them
+        for (size_t i = 0; i + 1 < bugsInCell.size(); i += 2) {
+            Bug *b1 = bugsInCell[i];
+            Bug *b2 = bugsInCell[i + 1];
+
+            std::cout << "  " << b1->getId()
+                    << " vs " << b2->getId() << "\n";
+
+            // 3 rounds
+            for (int r = 0; r < 3; r++) {
+                int dmg1 = rand() % 6;
+                int dmg2 = rand() % 6;
+
+                b1->takeDamage(dmg2);
+                b2->takeDamage(dmg1);
+
+                if (!b1->isAlive()) {
+                    b1->setKiller(b2->getId());
+                    break;
+                }
+
+                if (!b2->isAlive()) {
+                    b2->setKiller(b1->getId());
+                    break;
+                }
+            }
+        }
     }
 }
