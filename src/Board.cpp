@@ -307,13 +307,13 @@ void Board::testFights() {
         if (bug->isAlive()) {
             bug->setPosition(cell.first, cell.second);
             count++;
-            if (count >= 4) break; // ensures 2 pairs (and can leave odd if you change this)
+            if (count >= 4) break;
         }
     }
 
     std::cout << "Forced " << count << " bugs into (5,5)\n";
 
-    // Run fights only (no movement)
+    // Run fights only
     resolveFights();
 
     // Show result
