@@ -5,6 +5,7 @@
 #include "Crawler.h"
 #include "Hopper.h"
 #include "Direction.h"
+#include "Board.h"
 
 void printCrawlerState(int step, const Crawler& c) {
     std::cout << "Step " << step << "\n";
@@ -29,7 +30,7 @@ void printHopperState(int step, const Hopper& h) {
 int main() {
     srand(static_cast<unsigned>(time(nullptr)));
 
-    //CRAWLER TEST
+    // -------- CRAWLER TEST --------
     Crawler crawler(101, 0, 0, Direction::North, 10);
 
     std::cout << "Crawler initial state\n";
@@ -51,7 +52,7 @@ int main() {
                   << ": (" << pos.first << ", " << pos.second << ")\n";
     }
 
-    //HOPPER TEST
+    // -------- HOPPER TEST --------
     std::cout << "\nHopper test\n\n";
 
     Hopper hopper(201, 5, 5, Direction::East, 10, 3);
@@ -76,6 +77,15 @@ int main() {
         std::cout << "  " << k++
                   << ": (" << pos.first << ", " << pos.second << ")\n";
     }
+
+    // -------- BOARD TEST --------
+    std::cout << "\nBoard load test\n\n";
+
+    Board board;
+    board.loadFromFile("../data/bugs.txt");
+
+    std::cout << "\nAll bugs:\n";
+    board.displayAllBugs();
 
     return 0;
 }
