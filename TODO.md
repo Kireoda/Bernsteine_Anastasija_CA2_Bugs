@@ -128,7 +128,7 @@
     - OR list of bugs (type + id)
 ---
 ## 10. Fight / Eat System (Feature 8)
-- [ ] Group bugs by cell: `map<pair<int,int>, vector<Bug*>>`
+- [x] Group bugs by cell: `map<pair<int,int>, vector<Bug*>>`
 - [ ] For each cell with ≥2 bugs:
     - [ ] Shuffle bugs randomly
     - [ ] Pair them (1v1)

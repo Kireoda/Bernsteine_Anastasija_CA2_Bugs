@@ -139,7 +139,12 @@ void Board::displayAllBugs() const {
                 << bug->getPosition().second << ")"
                 << " | Dir: " << directionToString(bug->getDirection())
                 << " | Health: " << bug->getHealth()
-                << " | Status: " << (bug->isAlive() ? "Alive" : "Dead");
+                << " | Status: ";
+                if (bug->isAlive()) {
+                    std::cout << "Alive";
+                } else {
+                    std::cout << "Eaten by " << bug->getKillerId();
+                }
 
         const Hopper* hopper = dynamic_cast<const Hopper*>(bug);
         if (hopper) {
