@@ -1,8 +1,13 @@
-//
-// Created by anast on 04/05/2026.
-//
+#ifndef CRAWLER_H
+#define CRAWLER_H
 
-#ifndef BUGSPROJECT_CRAWLER_H
-#define BUGSPROJECT_CRAWLER_H
+#include "Bug.h"
 
-#endif //BUGSPROJECT_CRAWLER_H
+class Crawler : public Bug {
+public:
+    Crawler(int id, int x, int y, Direction dir, int health);
+
+    void move() override;
+};
+
+#endif
