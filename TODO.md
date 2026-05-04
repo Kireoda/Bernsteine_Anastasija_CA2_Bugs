@@ -1,18 +1,19 @@
 # 🐞 A Bug’s Life Project – Full TODO List
 ---
 ## 1. Setup & Version Control
-- [ ] Create project folder: `Lastname_Firstname_CA2_Bugs`
-- [ ] Create folder structure:  
-- [ ] `src/`  
-- [ ] `include/`  
-- [ ] `data/`  
-- [ ] `output/`
-- [ ] Initialise Git repository
-- [ ] Commit after EVERY feature (important for marks)
-- [ ] Create `data/bugs.txt` with sample data
+- [x] Create project folder: `Lastname_Firstname_CA2_Bugs`
+- [x] Create folder structure:  
+- [x] `src/`  
+- [x] `include/`  
+- [x] `data/`  
+- [x] `output/`
+- [x] Initialise Git repository
+- [x] Commit after EVERY feature (important for marks)
+- [x] Create `data/bugs.txt` with sample data
 ---
-## 2. Core Classes (Header + .cpp)### Bug (Abstract Base Class)
-- [ ] Create `Bug.h` /`Bug.cpp`
+## 2. Core Classes (Header + .cpp)
+### Bug (Abstract Base Class)
+- [x] Create `Bug.h` /`Bug.cpp`
 - [ ] Add protected members:  
 - [ ] id 
 - [ ] position (`pair<int,int>`)  

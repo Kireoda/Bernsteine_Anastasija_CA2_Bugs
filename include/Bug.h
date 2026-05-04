@@ -1,0 +1,47 @@
+#ifndef BUG_H
+#define BUG_H
+
+#include <utility>
+#include <list>
+#include "Direction.h"
+
+class Bug {
+protected:
+    int id;
+    std::pair<int, int> position;
+    Direction direction;
+    int health;
+    bool alive;
+    std::list<std::pair<int,int>> path;
+    int killerId; // track who killed this bug (-1 if alive)
+
+public:
+    Bug(int id, int x, int y, Direction dir, int health);
+    virtual ~Bug();
+
+    // Pure virtual
+    virtual void move() = 0;
+
+    // Common logic
+    bool isWayBlocked();
+
+    // Getters
+    int getId() const;
+    std::pair<int,int> getPosition() const;
+    Direction getDirection() const;
+    int getHealth() const;
+    bool isAlive() const;
+    int getKillerId() const;
+
+    // Setters / updates
+    void setPosition(int x, int y);
+    void setDirection(Direction dir);
+    void takeDamage(int dmg);
+    void setKiller(int id);
+
+    // Path
+    void addToPath(int x, int y);
+    const std::list<std::pair<int,int>>& getPath() const;
+};
+
+#endif
