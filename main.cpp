@@ -84,7 +84,7 @@ int main() {
             }
 
             case 4:
-                std::cout << "Tap not implemented yet\n";
+                board.tapBoard();
                 break;
 
             case 5:

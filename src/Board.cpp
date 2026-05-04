@@ -2,6 +2,8 @@
 #include "Crawler.h"
 #include "Hopper.h"
 #include "Teleporter.h"
+#include <cstdlib>
+#include <vector>
 
 #include <fstream>
 #include <sstream>
@@ -11,6 +13,42 @@ Board::Board() {}
 
 Board::~Board() {
     clear();
+}
+
+void Board::tapBoard() {
+    if (bugs.empty()) {
+        std::cout << "No bugs loaded\n";
+        return;
+    }
+
+    // Collect alive bugs
+    std::vector<Bug *> aliveBugs;
+    for (auto bug: bugs) {
+        if (bug->isAlive()) {
+            aliveBugs.push_back(bug);
+        }
+    }
+
+    if (aliveBugs.empty()) {
+        std::cout << "No alive bugs\n";
+        return;
+    }
+
+    // Pick one bug to freeze
+    int freezeIndex = rand() % aliveBugs.size();
+    Bug *frozenBug = aliveBugs[freezeIndex];
+
+    std::cout << "Frozen bug ID: " << frozenBug->getId() << "\n";
+
+    // Move all others
+    for (auto bug: bugs) {
+        if (!bug->isAlive()) continue;
+        if (bug == frozenBug) continue;
+
+        bug->move();
+    }
+
+    std::cout << "Tap complete\n";
 }
 
 void Board::clear() {

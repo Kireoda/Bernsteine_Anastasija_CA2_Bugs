@@ -49,11 +49,11 @@
     - [x] Record path
 ---
 ## Teleporter (New Bug Type)
-- [ ] Create `Teleporter.h` / `Teleporter.cpp`
-- [ ] Inherit from Bug
-- [ ] Implement `move()`:
-    - [ ] Random (x,y) within board
-    - [ ] Record path
+- [x] Create `Teleporter.h` / `Teleporter.cpp`
+- [x] Inherit from Bug
+- [x] Implement `move()`:
+    - [x] Random (x,y) within board
+    - [x] Record path
 ---
 ## 3. Board Class (Core System)
 - [x] Create `Board.h` / `Board.cpp`
@@ -67,35 +67,36 @@
 - [x] Create correct object:
     - [x] C → Crawler
     - [x] H → Hopper
+    - [x] T → Teleporter
 - [x] Allocate using `new`
 - [x] Store in vector
 ### Memory Management
 - [x] Implement function to delete all bugs
-- [ ] Ensure no memory leaks
+- [x] Ensure no memory leaks
 ---
 ## 5. Menu System (8 Options)
-- [ ] 1. Initialize – clear + reload from file
+- [x] 1. Initialize – clear + reload from file
 - [x] 2. Display all bugs
-- [ ] 3. Find a bug
+- [x] 3. Find a bug
 - [ ] 4. Tap board
 - [ ] 5. Life history
 - [ ] 6. Display all cells
 - [ ] 7. Run simulation
-- [ ] 0. Exit
+- [x] 0. Exit
 ---
 ## 6. Display Features
 ### Display All Bugs (Feature 2)
-- [ ] Show:
-    - [ ] ID
-    - [ ] Type (Crawler / Hopper / Teleporter)
-    - [ ] Position
-    - [ ] Direction (as text, not number)
-    - [ ] Health
-    - [ ] Alive/Dead
-    - [ ] hopLength (if Hopper)
+- [x] Show:
+    - [x] ID
+    - [x] Type (Crawler / Hopper / Teleporter)
+    - [x] Position
+    - [x] Direction (as text, not number)
+    - [x] Health
+    - [x] Alive/Dead
+    - [x] hopLength (if Hopper)
 ### Find Bug (Feature 3)
 - [x] Input ID
-- [ ] Search vector
+- [x] Search vector
 - [x] Show details or “not found”
 ---
 ## 7. Movement System (Feature 4)
@@ -127,8 +128,7 @@
     - OR list of bugs (type + id)
 ---
 ## 10. Fight / Eat System (Feature 8)
-- [ ] Group bugs by cell:
-  `map<pair<int,int>, vector<Bug*>>`
+- [ ] Group bugs by cell: `map<pair<int,int>, vector<Bug*>>`
 - [ ] For each cell with ≥2 bugs:
     - [ ] Shuffle bugs randomly
     - [ ] Pair them (1v1)
@@ -150,8 +150,7 @@
     - "Last Bug Standing: ID X"
 ---
 ## 12. File Output (Exit)
-- [ ] Generate filename:
-  `bugs_life_history_date_time.out`
+- [ ] Generate filename: `bugs_life_history_date_time.out`
 - [ ] Write:
     - [ ] ID
     - [ ] Path
