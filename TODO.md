@@ -81,7 +81,7 @@
 - [ ] 5. Life history
 - [ ] 6. Display all cells
 - [ ] 7. Run simulation
-- [ ] 8. Exit
+- [ ] 0. Exit
 ---
 ## 6. Display Features
 ### Display All Bugs (Feature 2)

@@ -1,8 +1,14 @@
-//
-// Created by anast on 04/05/2026.
-//
+#ifndef TELEPORTER_H
+#define TELEPORTER_H
 
-#ifndef BUGSPROJECT_TELEPORTER_H
-#define BUGSPROJECT_TELEPORTER_H
+#include "Bug.h"
 
-#endif //BUGSPROJECT_TELEPORTER_H
+class Teleporter : public Bug {
+public:
+    Teleporter(int id, int x, int y, Direction dir, int health);
+
+    void move() override;
+    std::string getType() const override;
+};
+
+#endif

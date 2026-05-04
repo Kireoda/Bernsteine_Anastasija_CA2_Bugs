@@ -1,6 +1,7 @@
 #include "Board.h"
 #include "Crawler.h"
 #include "Hopper.h"
+#include "Teleporter.h"
 
 #include <fstream>
 #include <sstream>
@@ -62,6 +63,9 @@ void Board::loadFromFile(const std::string& filename) {
             int hopLength = std::stoi(token);
 
             bugs.push_back(new Hopper(id, x, y, dir, health, hopLength));
+        }
+        else if (type == 'T') {
+            bugs.push_back(new Teleporter(id, x, y, dir, health));
         }
     }
 
