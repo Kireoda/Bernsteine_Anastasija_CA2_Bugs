@@ -12,6 +12,8 @@ public:
 
     void move() override;
 
+    std::string getType() const override;
+
     int getHopLength() const;
 };
 

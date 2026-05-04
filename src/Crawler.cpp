@@ -29,3 +29,7 @@ void Crawler::move() {
     // Record path
     path.push_back(position);
 }
+
+std::string Crawler::getType() const {
+    return "Crawler";
+}

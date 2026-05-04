@@ -8,6 +8,10 @@ int Hopper::getHopLength() const {
     return hopLength;
 }
 
+std::string Hopper::getType() const {
+    return "Hopper";
+}
+
 void Hopper::move() {
     if (!alive) return;
 

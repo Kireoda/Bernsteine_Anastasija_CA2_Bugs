@@ -71,6 +71,7 @@ void Board::loadFromFile(const std::string& filename) {
 void Board::displayAllBugs() const {
     for (const auto& bug : bugs) {
         std::cout << "ID: " << bug->getId()
+                  << "  Type: " << bug->getType()
                   << ", Position: (" << bug->getPosition().first << ", "
                   << bug->getPosition().second << ")"
                   << ", Dirction: " << directionToString(bug->getDirection())
@@ -81,18 +82,22 @@ void Board::displayAllBugs() const {
 }
 
 void Board::findBugById(int id) const {
-    for (const auto &bug: bugs) {
+    for (const auto& bug : bugs) {
         if (bug->getId() == id) {
             std::cout << "Bug found:\n";
-            std::cout << "ID: " << bug->getId()
-                    << ", Position: (" << bug->getPosition().first << ", "
-                    << bug->getPosition().second << ")"
-                    << ", Direction: " << directionToString(bug->getDirection())
-                    << ", Health: " << bug->getHealth()
-                    << ", Status: " << (bug->isAlive() ? "Alive" : "Dead")
-                    << "\n";
+            std::cout << "  ID: " << bug->getId() << "\n";
+            std::cout << "  Type: " << bug->getType() << "\n";
+            std::cout << "  Position: ("
+                      << bug->getPosition().first << ", "
+                      << bug->getPosition().second << ")\n";
+            std::cout << "  Direction: "
+                      << directionToString(bug->getDirection()) << "\n";
+            std::cout << "  Health: " << bug->getHealth() << "\n";
+            std::cout << "  Status: "
+                      << (bug->isAlive() ? "Alive" : "Dead") << "\n";
             return;
         }
     }
-    std::cout << "Bug not found\n";
+
+    std::cout << "Bug with ID " << id << " not found\n";
 }

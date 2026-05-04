@@ -87,5 +87,11 @@ int main() {
     std::cout << "\nAll bugs:\n";
     board.displayAllBugs();
 
+    int searchId;
+    std::cout << "\nEnter bug ID to search: ";
+    std::cin >> searchId;
+
+    board.findBugById(searchId);
+
     return 0;
 }

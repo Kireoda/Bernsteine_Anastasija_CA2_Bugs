@@ -3,6 +3,7 @@
 
 #include <utility>
 #include <list>
+#include <string>
 #include "Direction.h"
 
 class Bug {
@@ -22,8 +23,9 @@ public:
     // Virtual destructor
     virtual ~Bug();
 
-    // Pure virtual function
+    // Pure virtual functions
     virtual void move() = 0;
+    virtual std::string getType() const = 0;
 
     // Common logic
     bool isWayBlocked();
@@ -34,14 +36,12 @@ public:
     Direction getDirection() const;
     int getHealth() const;
     bool isAlive() const;
-
     int getKillerId() const;
 
     // Setters
     void setPosition(int x, int y);
     void setDirection(Direction dir);
     void takeDamage(int dmg);
-
     void setKiller(int id);
 
     // Path

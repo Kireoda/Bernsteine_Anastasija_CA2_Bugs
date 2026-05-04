@@ -94,9 +94,9 @@
     - [ ] Alive/Dead
     - [ ] hopLength (if Hopper)
 ### Find Bug (Feature 3)
-- [ ] Input ID
+- [x] Input ID
 - [ ] Search vector
-- [ ] Show details or “not found”
+- [x] Show details or “not found”
 ---
 ## 7. Movement System (Feature 4)
 ### Tap Board
