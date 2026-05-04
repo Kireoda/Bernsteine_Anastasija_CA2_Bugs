@@ -13,13 +13,16 @@ protected:
     int health;
     bool alive;
     std::list<std::pair<int,int>> path;
-    int killerId; // track who killed this bug (-1 if alive)
+    int killerId;
 
 public:
+    // Constructor
     Bug(int id, int x, int y, Direction dir, int health);
+
+    // Virtual destructor
     virtual ~Bug();
 
-    // Pure virtual
+    // Pure virtual function
     virtual void move() = 0;
 
     // Common logic
@@ -31,12 +34,14 @@ public:
     Direction getDirection() const;
     int getHealth() const;
     bool isAlive() const;
+
     int getKillerId() const;
 
-    // Setters / updates
+    // Setters
     void setPosition(int x, int y);
     void setDirection(Direction dir);
     void takeDamage(int dmg);
+
     void setKiller(int id);
 
     // Path

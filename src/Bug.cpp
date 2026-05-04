@@ -3,7 +3,7 @@
 Bug::Bug(int id, int x, int y, Direction dir, int health)
     : id(id), position({x, y}), direction(dir), health(health), alive(true), killerId(-1)
 {
-    path.push_back(position); // record initial position
+    path.push_back(position);
 }
 
 Bug::~Bug() {}
@@ -22,10 +22,15 @@ bool Bug::isWayBlocked() {
 
 // Getters
 int Bug::getId() const { return id; }
+
 std::pair<int,int> Bug::getPosition() const { return position; }
+
 Direction Bug::getDirection() const { return direction; }
+
 int Bug::getHealth() const { return health; }
+
 bool Bug::isAlive() const { return alive; }
+
 int Bug::getKillerId() const { return killerId; }
 
 // Setters
@@ -45,9 +50,7 @@ void Bug::takeDamage(int dmg) {
     }
 }
 
-void Bug::setKiller(int id) {
-    killerId = id;
-}
+void Bug::setKiller(int id) { killerId = id; }
 
 // Path
 void Bug::addToPath(int x, int y) {
