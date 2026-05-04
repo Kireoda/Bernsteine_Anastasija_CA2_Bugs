@@ -48,7 +48,7 @@ void Board::tapBoard() {
         bug->move();
     }
 
-    std::cout << "Tap complete\n";
+    std::cout << "Tap complete - bugs have moved \n";
 }
 
 void Board::clear() {
@@ -111,15 +111,26 @@ void Board::loadFromFile(const std::string& filename) {
 }
 
 void Board::displayAllBugs() const {
-    for (const auto& bug : bugs) {
+    if (bugs.empty()) {
+        std::cout << "No bugs loaded\n";
+        return;
+    }
+
+    for (const auto &bug: bugs) {
         std::cout << "ID: " << bug->getId()
-                  << "  Type: " << bug->getType()
-                  << ", Position: (" << bug->getPosition().first << ", "
-                  << bug->getPosition().second << ")"
-                  << ", Dirction: " << directionToString(bug->getDirection())
-                  << ", Health: " << bug->getHealth()
-                  << ", Status: " << (bug->isAlive() ? "Alive" : "Dead")
-                  << "\n";
+                << " | Type: " << bug->getType()
+                << " | Pos: (" << bug->getPosition().first << ", "
+                << bug->getPosition().second << ")"
+                << " | Dir: " << directionToString(bug->getDirection())
+                << " | Health: " << bug->getHealth()
+                << " | Status: " << (bug->isAlive() ? "Alive" : "Dead");
+
+        const Hopper* hopper = dynamic_cast<const Hopper*>(bug);
+        if (hopper) {
+            std::cout << " | Hop: " << hopper->getHopLength();
+        }
+
+        std::cout << "\n";
     }
 }
 
