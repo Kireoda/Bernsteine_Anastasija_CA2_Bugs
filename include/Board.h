@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <map>
 #include "Bug.h"
 
 class Board {
@@ -18,9 +19,14 @@ public:
     void displayAllBugs() const;
     void findBugById(int id) const;
     void tapBoard();
+    void resolveFights();
 
     // Utility
     void clear();
+
+    void displayCells() const;
+
+    std::map<std::pair<int, int>, std::vector<Bug *> > buildCellMap() const;
 };
 
 #endif

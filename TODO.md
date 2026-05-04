@@ -78,9 +78,9 @@
 - [x] 1. Initialize – clear + reload from file
 - [x] 2. Display all bugs
 - [x] 3. Find a bug
-- [ ] 4. Tap board
+- [x] 4. Tap board
 - [ ] 5. Life history
-- [ ] 6. Display all cells
+- [x] 6. Display all cells
 - [ ] 7. Run simulation
 - [x] 0. Exit
 ---
@@ -101,11 +101,11 @@
 ---
 ## 7. Movement System (Feature 4)
 ### Tap Board
-- [ ] Select **one random alive bug → freeze it**
-- [ ] Loop all bugs:
-    - [ ] Skip dead bugs
-    - [ ] Skip frozen bug
-    - [ ] Call `move()`
+- [x] Select **one random alive bug → freeze it**
+- [x] Loop all bugs:
+    - [x] Skip dead bugs
+    - [x] Skip frozen bug
+    - [x] Call `move()`
 ---
 ## 8. Life History (Feature 5)
 - [x] Track path for every bug
@@ -117,13 +117,13 @@
         - OR “Eaten by X”
 ---
 ## 9. Cell System (Feature 6)
-- [ ] Build 10x10 grid
+- [x] Build 10x10 grid
 ### After each tap:
-- [ ] Rebuild cell map
-- [ ] Only include alive bugs
+- [x] Rebuild cell map
+- [x] Only include alive bugs
 ### Display Cells
-- [ ] Loop all cells (0–9, 0–9)
-- [ ] Print:
+- [x] Loop all cells (0–9, 0–9)
+- [x] Print:
     - empty
     - OR list of bugs (type + id)
 ---

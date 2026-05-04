@@ -92,7 +92,7 @@ int main() {
                 break;
 
             case 6:
-                std::cout << "Cells not implemented yet\n";
+                board.displayCells();
                 break;
 
             case 7:

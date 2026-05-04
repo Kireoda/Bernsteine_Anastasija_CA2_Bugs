@@ -4,6 +4,7 @@
 #include "Teleporter.h"
 #include <cstdlib>
 #include <vector>
+#include <map>
 
 #include <fstream>
 #include <sstream>
@@ -13,6 +14,19 @@ Board::Board() {}
 
 Board::~Board() {
     clear();
+}
+
+std::map<std::pair<int,int>, std::vector<Bug*>> Board::buildCellMap() const {
+    std::map<std::pair<int,int>, std::vector<Bug*>> cellMap;
+
+    for (auto bug : bugs) {
+        if (!bug->isAlive()) continue;
+
+        auto pos = bug->getPosition();
+        cellMap[pos].push_back(bug);
+    }
+
+    return cellMap;
 }
 
 void Board::tapBoard() {
@@ -153,4 +167,35 @@ void Board::findBugById(int id) const {
     }
 
     std::cout << "Bug with ID " << id << " not found\n";
+}
+void Board::displayCells() const {
+    if (bugs.empty()) {
+        std::cout << "No bugs loaded\n";
+        return;
+    }
+
+    auto cellMap = buildCellMap();
+
+    std::cout << "\nBoard:\n\n";
+
+    for (int y = 0; y < 10; y++) {
+        for (int x = 0; x < 10; x++) {
+
+            std::pair<int,int> cell = {x, y};
+
+            if (cellMap.find(cell) == cellMap.end()) {
+                std::cout << "[   ]";
+            } else {
+                const auto& bugsInCell = cellMap[cell];
+
+                std::string type = bugsInCell[0]->getType();
+                int id = bugsInCell[0]->getId();
+
+                char symbol = type[0]; // C, H, T
+
+                std::cout << "[" << symbol << id << "]";
+            }
+        }
+        std::cout << "\n";
+    }
 }

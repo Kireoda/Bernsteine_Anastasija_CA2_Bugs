@@ -10,9 +10,9 @@ private:
 public:
     Hopper(int id, int x, int y, Direction dir, int health, int hopLength);
 
-    std::string getType() const override;
-
     void move() override;
+
+    std::string getType() const override;
 
     int getHopLength() const;
 };
