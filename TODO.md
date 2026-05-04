@@ -14,39 +14,39 @@
 ## 2. Core Classes (Header + .cpp)
 ### Bug (Abstract Base Class)
 - [x] Create `Bug.h` /`Bug.cpp`
-- [ ] Add protected members:  
-- [ ] id 
-- [ ] position (`pair<int,int>`)  
-- [ ] direction (use enum)  
-- [ ] health 
-- [ ] alive 
-- [ ] path (`list<pair<int,int>>`)
-- [ ] Add **pure virtual** `move() = 0`
-- [ ] Implement `isWayBlocked()`
-- [ ] Add constructor
-- [ ] Add getters (no direct access outside)
-- [ ] Add **virtual destructor**
-- [ ] Record **initial position in path**
+- [x] Add protected members:  
+- [x] id 
+- [x] position (`pair<int,int>`)  
+- [x] direction (use enum)  
+- [x] health 
+- [x] alive 
+- [x] path (`list<pair<int,int>>`)
+- [x] Add **pure virtual** `move() = 0`
+- [x] Implement `isWayBlocked()`
+- [x] Add constructor
+- [x] Add getters (no direct access outside)
+- [x] Add **virtual destructor**
+- [x] Record **initial position in path**
 ## Direction Handling
-- [ ] Convert direction to string for display
+- [x] Convert direction to string for display
 ---
 ## Crawler
-- [ ] Create `Crawler.h` / `Crawler.cpp`
-- [ ] Inherit from Bug
-- [ ] Implement `move()`:
-    - [ ] Move 1 step
-    - [ ] If blocked → random direction until valid
-    - [ ] Update position
-    - [ ] Record path
+- [x] Create `Crawler.h` / `Crawler.cpp`
+- [x] Inherit from Bug
+- [x] Implement `move()`:
+    - [x] Move 1 step
+    - [x] If blocked → random direction until valid
+    - [x] Update position
+    - [x] Record path
 ---
 ## Hopper
-- [ ] Create `Hopper.h` / `Hopper.cpp`
-- [ ] Add `hopLength`
-- [ ] Implement `move()`:
-    - [ ] Move `hopLength` steps
-    - [ ] If blocked → random direction
-    - [ ] Stop early if hitting edge
-    - [ ] Record path
+- [x] Create `Hopper.h` / `Hopper.cpp`
+- [x] Add `hopLength`
+- [x] Implement `move()`:
+    - [x] Move `hopLength` steps
+    - [x] If blocked → random direction
+    - [x] Stop early if hitting edge
+    - [x] Record path
 ---
 ## Teleporter (New Bug Type)
 - [ ] Create `Teleporter.h` / `Teleporter.cpp`
@@ -56,32 +56,32 @@
     - [ ] Record path
 ---
 ## 3. Board Class (Core System)
-- [ ] Create `Board.h` / `Board.cpp`
-- [ ] Store:
-    - [ ] `vector<Bug*> bugs` (inside Board, not main)
+- [x] Create `Board.h` / `Board.cpp`
+- [x] Store:
+    - [x] `vector<Bug*> bugs` (inside Board, not main)
 ---
 ## 4. Data Management
 ### Load Bugs (Feature 1)
-- [ ] Read `bugs.txt`
-- [ ] Parse `;` delimited lines
-- [ ] Create correct object:
-    - [ ] C → Crawler
-    - [ ] H → Hopper
-- [ ] Allocate using `new`
-- [ ] Store in vector
+- [x] Read `bugs.txt`
+- [x] Parse `;` delimited lines
+- [x] Create correct object:
+    - [x] C → Crawler
+    - [x] H → Hopper
+- [x] Allocate using `new`
+- [x] Store in vector
 ### Memory Management
-- [ ] Implement function to delete all bugs
+- [x] Implement function to delete all bugs
 - [ ] Ensure no memory leaks
 ---
 ## 5. Menu System (8 Options)
-1. Initialize – clear + reload from file
-2. Display all bugs
-3. Find a bug
-4. Tap board
-5. Life history
-6. Display all cells
-7. Run simulation
-8. Exit
+- [ ] 1. Initialize – clear + reload from file
+- [x] 2. Display all bugs
+- [ ] 3. Find a bug
+- [ ] 4. Tap board
+- [ ] 5. Life history
+- [ ] 6. Display all cells
+- [ ] 7. Run simulation
+- [ ] 8. Exit
 ---
 ## 6. Display Features
 ### Display All Bugs (Feature 2)
@@ -107,7 +107,7 @@
     - [ ] Call `move()`
 ---
 ## 8. Life History (Feature 5)
-- [ ] Track path for every bug
+- [x] Track path for every bug
 - [ ] Print:
     - [ ] ID + type
     - [ ] Full path
@@ -165,8 +165,8 @@
 - [ ] `getBugsOnCell()`
 ---
 ## 14. Testing & Edge Cases
-- [ ] Test file loading
-- [ ] Test edge movement (corners, walls)
+- [x] Test file loading
+- [x] Test edge movement (corners, walls)
 - [ ] Test hopper partial movement
 - [ ] Test fights (2, 3, 4+ bugs)
 - [ ] Ensure dead bugs:
@@ -175,8 +175,8 @@
 - [ ] Run memory checker (Valgrind or sanitizer)
 ---
 ## 15. Code Quality (Marks!)
-- [ ] Use `vector<Bug*>` (not objects)
-- [ ] Separate `.h` and `.cpp`
+- [x] Use `vector<Bug*>` (not objects)
+- [x] Separate `.h` and `.cpp`
 - [ ] Clean variable names
 - [ ] Avoid duplicate code (DRY)
 - [ ] Use `const` where possible

@@ -79,3 +79,20 @@ void Board::displayAllBugs() const {
                   << "\n";
     }
 }
+
+void Board::findBugById(int id) const {
+    for (const auto &bug: bugs) {
+        if (bug->getId() == id) {
+            std::cout << "Bug found:\n";
+            std::cout << "ID: " << bug->getId()
+                    << ", Position: (" << bug->getPosition().first << ", "
+                    << bug->getPosition().second << ")"
+                    << ", Direction: " << directionToString(bug->getDirection())
+                    << ", Health: " << bug->getHealth()
+                    << ", Status: " << (bug->isAlive() ? "Alive" : "Dead")
+                    << "\n";
+            return;
+        }
+    }
+    std::cout << "Bug not found\n";
+}

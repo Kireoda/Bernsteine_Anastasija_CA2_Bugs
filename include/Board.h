@@ -17,6 +17,8 @@ public:
     void loadFromFile(const std::string& filename);
     void displayAllBugs() const;
 
+    void findBugById(int id) const;
+
     // Utility
     void clear();
 };
