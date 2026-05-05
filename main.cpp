@@ -90,7 +90,7 @@ int main() {
                 break;
 
             case 5:
-                std::cout << "Life history not implemented yet\n";
+                board.displayLifeHistory();
                 break;
 
             case 6:

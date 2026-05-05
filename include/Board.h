@@ -18,6 +18,7 @@ public:
     void loadFromFile(const std::string& filename);
     void displayAllBugs() const;
     void findBugById(int id) const;
+    void displayLifeHistory() const;
     void tapBoard();
     void resolveFights();
     void testFights();

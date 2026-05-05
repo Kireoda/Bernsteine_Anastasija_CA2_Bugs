@@ -109,10 +109,10 @@
 ---
 ## 8. Life History (Feature 5)
 - [x] Track path for every bug
-- [ ] Print:
-    - [ ] ID + type
-    - [ ] Full path
-    - [ ] Status:
+- [x] Print:
+    - [x] ID + type
+    - [x] Full path
+    - [x] Status:
         - Alive
         - OR “Eaten by X”
 ---

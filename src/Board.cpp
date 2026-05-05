@@ -319,3 +319,35 @@ void Board::testFights() {
     // Show result
     displayAllBugs();
 }
+
+void Board::displayLifeHistory() const {
+    if (bugs.empty()) {
+        std::cout << "No bugs loaded\n";
+        return;
+    }
+
+    std::cout << "\nLife History:\n\n";
+
+    for (const auto& bug : bugs) {
+        std::cout << "ID: " << bug->getId()
+                  << " | Type: " << bug->getType() << "\n";
+
+        std::cout << "  Path: ";
+
+        const auto& path = bug->getPath();
+        for (const auto& pos : path) {
+            std::cout << "(" << pos.first << "," << pos.second << ") ";
+        }
+
+        std::cout << "\n";
+
+        std::cout << "  Status: ";
+        if (bug->isAlive()) {
+            std::cout << "Alive";
+        } else {
+            std::cout << "Eaten by " << bug->getKillerId();
+        }
+
+        std::cout << "\n\n";
+    }
+}
