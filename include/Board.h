@@ -9,9 +9,12 @@
 class Board {
 private:
     std::vector<Bug*> bugs;
+    std::map<std::pair<int, int>, std::vector<Bug *> > buildCellMap() const;
 
 public:
     Board();
+    Board(const Board&) = delete;
+    Board& operator=(const Board&) = delete;
     ~Board();
 
     // Core
@@ -25,13 +28,12 @@ public:
     void runSimulation();
     void testFights();
     void testDeadBehavior();
+    void writeLifeHistoryToFile() const;
 
     // Utility
     void clear();
 
     void displayCells() const;
-
-    std::map<std::pair<int, int>, std::vector<Bug *> > buildCellMap() const;
 };
 
 #endif

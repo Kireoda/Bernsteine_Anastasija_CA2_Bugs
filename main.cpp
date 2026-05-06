@@ -29,7 +29,6 @@ void printHopperState(int step, const Hopper& h) {
 
 void showMenu() {
     std::cout << "\nMenu\n";
-    std::cout << "0. Exit\n";
     std::cout << "1. Initialize board\n";
     std::cout << "2. Display all bugs\n";
     std::cout << "3. Find a bug\n";
@@ -37,10 +36,11 @@ void showMenu() {
     std::cout << "5. Life history\n";
     std::cout << "6. Display all cells\n";
     std::cout << "7. Run simulation\n";
-    std::cout << "8. Test crawler\n";
-    std::cout << "9. Test hopper\n";
-    std::cout << "10. Test fights\n";
-    std::cout << "11. Test dead bug behaviour\n";
+    std::cout << "8. Exit\n";
+    std::cout << "9. Test crawler\n";
+    std::cout << "10. Test hopper\n";
+    std::cout << "11. Test fights\n";
+    std::cout << "12. Test dead bug behaviour\n";
     std::cout << "Choose option: ";
 }
 
@@ -101,7 +101,12 @@ int main() {
                 board.runSimulation();
                 break;
 
-            case 8: {
+            case 8:
+                board.writeLifeHistoryToFile();
+                std::cout << "Exiting...\n";
+                break;
+
+            case 9: {
                 std::cout << "\nCrawler test\n\n";
 
                 Crawler crawler(101, 0, 0, Direction::North, 10);
@@ -120,7 +125,7 @@ int main() {
                 break;
             }
 
-            case 9: {
+            case 10: {
                 std::cout << "\nHopper test\n\n";
 
                 Hopper hopper(201, 5, 5, Direction::East, 10, 3);
@@ -138,23 +143,19 @@ int main() {
                 }
                 break;
             }
-            case 10:
+            case 11:
                 board.testFights();
                 break;
 
-            case 11:
+            case 12:
                 board.testDeadBehavior();
-                break;
-
-            case 0:
-                std::cout << "Exiting...\n";
                 break;
 
             default:
                 std::cout << "Invalid option\n";
         }
 
-    } while (choice != 0);
+    } while (choice != 8);
 
     return 0;
 }

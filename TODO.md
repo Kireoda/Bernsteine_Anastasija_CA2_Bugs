@@ -79,9 +79,9 @@
 - [x] 2. Display all bugs
 - [x] 3. Find a bug
 - [x] 4. Tap board
-- [ ] 5. Life history
+- [x] 5. Life history
 - [x] 6. Display all cells
-- [ ] 7. Run simulation
+- [x] 7. Run simulation
 - [x] 0. Exit
 ---
 ## 6. Display Features
@@ -142,26 +142,24 @@
 - [x] If odd number → last bug survives
 ---
 ## 11. Simulation (Feature 9)
-- [ ] While `countAlive() > 1`:
-    - [ ] Tap board
-    - [ ] Display progress
-    - [ ] Wait 1 second
-- [ ] Print final winner:
+- [x] While `countAlive() > 1`:
+    - [x] Tap board
+    - [x] Display progress
+    - [x] Wait 1 second
+- [x] Print final winner:
     - "Last Bug Standing: ID X"
 ---
 ## 12. File Output (Exit)
-- [ ] Generate filename: `bugs_life_history_date_time.out`
-- [ ] Write:
-    - [ ] ID
-    - [ ] Path
-    - [ ] Final status (Alive / Eaten by X)
+- [x] Generate filename: `bugs_life_history_date_time.out`
+- [x] Write:
+    - [x] ID
+    - [x] Path
+    - [x] Final status (Alive / Eaten by X)
 ---
 ## 13. Utility Functions
-- [ ] `randomInt(min,max)`
-- [ ] `randomDirection()`
-- [ ] `countAlive()`
-- [ ] `isPositionValid(x,y)`
-- [ ] `getBugsOnCell()`
+- [ ] Move `buildCellMap()` from `public` to `private` in Board.h (no internal pointers exposed)
+- [ ] Delete copy constructor and assignment operator for Board (`= delete`) to avoid shallow copying
+- [ ] Replace `rand()` for damage in fights with `std::uniform_int_distribution` (consistent with shuffle generator)
 ---
 ## 14. Testing & Edge Cases
 - [x] Test file loading
@@ -171,7 +169,8 @@
 - [x] Ensure dead bugs:
     - [x] Don’t move
     - [x] Don’t fight
-- [ ] Run memory checker (Valgrind or sanitizer)
+- [ ] Use `addToPath()` inside Crawler, Hopper, Teleporter `move()` methods instead of `path.push_back` directly
+- [ ] Run Valgrind or AddressSanitizer – confirm zero memory leaks
 ---
 ## 15. Code Quality (Marks!)
 - [x] Use `vector<Bug*>` (not objects)

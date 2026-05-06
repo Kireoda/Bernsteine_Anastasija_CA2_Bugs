@@ -2,7 +2,6 @@
 #include "Crawler.h"
 #include "Hopper.h"
 #include "Teleporter.h"
-#include <cstdlib>
 #include <vector>
 #include <map>
 #include <algorithm>
@@ -12,6 +11,8 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <ctime>
+#include <iomanip>
 
 Board::Board() {}
 
@@ -223,6 +224,8 @@ void Board::resolveFights() {
         std::shuffle(bugsInCell.begin(), bugsInCell.end(), g);
 
         // Pair them
+        std::uniform_int_distribution<int> damageDistribution(0, 5);
+
         for (size_t i = 0; i + 1 < bugsInCell.size(); i += 2) {
             Bug *b1 = bugsInCell[i];
             Bug *b2 = bugsInCell[i + 1];
@@ -233,8 +236,8 @@ void Board::resolveFights() {
             // fighting rounds
             for (int r = 0; r < 3; r++) {
 
-                int dmg1 = rand() % 6;
-                int dmg2 = rand() % 6;
+                int dmg1 = damageDistribution(g);
+                int dmg2 = damageDistribution(g);
 
                 b1->takeDamage(dmg2);
                 b2->takeDamage(dmg1);
@@ -405,4 +408,66 @@ void Board::runSimulation() {
                       << ")\n";
         }
     }
+}
+
+void Board::writeLifeHistoryToFile() const {
+
+    // Get current time
+    std::time_t now = std::time(nullptr);
+    std::tm* localTime = std::localtime(&now);
+
+    // Build filename
+    std::ostringstream filename;
+
+    filename << "../output/bugs_life_history_"
+             << (localTime->tm_year + 1900) << "_"
+             << std::setw(2) << std::setfill('0') << (localTime->tm_mon + 1) << "_"
+             << std::setw(2) << std::setfill('0') << localTime->tm_mday << "_"
+             << std::setw(2) << std::setfill('0') << localTime->tm_hour << "_"
+             << std::setw(2) << std::setfill('0') << localTime->tm_min << "_"
+             << std::setw(2) << std::setfill('0') << localTime->tm_sec
+             << ".out";
+
+    // Open file
+    std::ofstream outFile(filename.str());
+
+    if (!outFile) {
+        std::cout << "Error creating output file\n";
+        return;
+    }
+
+    // Write bug histories
+    for (const auto& bug : bugs) {
+
+        outFile << "ID: " << bug->getId()
+                << " | Type: " << bug->getType()
+                << "\n";
+
+        outFile << "Path: ";
+
+        for (const auto& pos : bug->getPath()) {
+            outFile << "("
+                    << pos.first
+                    << ","
+                    << pos.second
+                    << ") ";
+        }
+
+        outFile << "\n";
+
+        outFile << "Status: ";
+
+        if (bug->isAlive()) {
+            outFile << "Alive";
+        } else {
+            outFile << "Eaten by "
+                    << bug->getKillerId();
+        }
+
+        outFile << "\n\n";
+    }
+
+    outFile.close();
+
+    std::cout << "Life history written to file\n";
 }
