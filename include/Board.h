@@ -21,6 +21,8 @@ public:
     void displayLifeHistory() const;
     void tapBoard();
     void resolveFights();
+    int countAlive() const;
+    void runSimulation();
     void testFights();
     void testDeadBehavior();
 

@@ -98,7 +98,7 @@ int main() {
                 break;
 
             case 7:
-                std::cout << "Simulation not implemented yet\n";
+                board.runSimulation();
                 break;
 
             case 8: {

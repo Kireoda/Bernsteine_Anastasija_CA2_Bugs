@@ -7,7 +7,8 @@
 #include <map>
 #include <algorithm>
 #include <random>
-
+#include <thread>
+#include <chrono>
 #include <fstream>
 #include <sstream>
 #include <iostream>
@@ -349,5 +350,59 @@ void Board::displayLifeHistory() const {
         }
 
         std::cout << "\n\n";
+    }
+}
+int Board::countAlive() const {
+    int count = 0;
+
+    for (auto bug : bugs) {
+        if (bug->isAlive()) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+void Board::runSimulation() {
+    if (bugs.empty()) {
+        std::cout << "No bugs loaded\n";
+        return;
+    }
+
+    int round = 1;
+
+    while (countAlive() > 1) {
+
+        std::cout << "\n========== Round "
+                  << round
+                  << " ==========\n";
+
+        tapBoard();
+        displayCells();
+
+        std::cout << "\nAlive bugs remaining: "
+                  << countAlive()
+                  << "\n";
+
+        displayAllBugs();
+
+        std::this_thread::sleep_for(
+            std::chrono::seconds(1)
+        );
+
+        round++;
+    }
+
+    std::cout << "\nSimulation complete\n";
+
+    for (auto bug : bugs) {
+        if (bug->isAlive()) {
+            std::cout << "Last Bug Standing: "
+                      << bug->getId()
+                      << " ("
+                      << bug->getType()
+                      << ")\n";
+        }
     }
 }
