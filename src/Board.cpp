@@ -183,34 +183,22 @@ void Board::findBugById(int id) const {
 
 // Prints a simple 10x10 view of currently occupied cells.
 void Board::displayCells() const {
-    if (bugs.empty()) {
-        std::cout << "No bugs loaded\n";
-        return;
-    }
-
     auto cellMap = buildCellMap();
-
-    std::cout << "\nBoard:\n\n";
-
-    for (int y = 0; y < 10; y++) {
-        for (int x = 0; x < 10; x++) {
-
+    for (int y = 0; y < 10; ++y) {
+        for (int x = 0; x < 10; ++x) {
             std::pair<int,int> cell = {x, y};
-
+            std::cout << "(" << x << "," << y << "): ";
             if (cellMap.find(cell) == cellMap.end()) {
-                std::cout << "[   ]";
+                std::cout << "empty";
             } else {
-                const auto& bugsInCell = cellMap[cell];
-
-                std::string type = bugsInCell[0]->getType();
-                int id = bugsInCell[0]->getId();
-
-                char symbol = type[0]; // C, H, T
-
-                std::cout << "[" << symbol << id << "]";
+                const auto& bugsHere = cellMap[cell];
+                for (size_t i = 0; i < bugsHere.size(); ++i) {
+                    if (i > 0) std::cout << ", ";
+                    std::cout << bugsHere[i]->getType() << " " << bugsHere[i]->getId();
+                }
             }
+            std::cout << "\n";
         }
-        std::cout << "\n";
     }
 }
 
