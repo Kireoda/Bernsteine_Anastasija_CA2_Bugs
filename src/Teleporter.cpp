@@ -11,7 +11,7 @@ void Teleporter::move() {
     int y = rand() % 10;
 
     position = {x, y};
-    path.push_back(position);
+    addToPath(x, y);
 }
 
 std::string Teleporter::getType() const {

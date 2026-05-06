@@ -169,8 +169,8 @@
 - [x] Ensure dead bugs:
     - [x] Don’t move
     - [x] Don’t fight
-- [ ] Use `addToPath()` inside Crawler, Hopper, Teleporter `move()` methods instead of `path.push_back` directly
-- [ ] Run Valgrind or AddressSanitizer – confirm zero memory leaks
+- [x] Use `addToPath()` inside Crawler, Hopper, Teleporter `move()` methods instead of `path.push_back` directly
+- [x] Run Valgrind or AddressSanitizer (confirm zero memory leaks)
 ---
 ## 15. Code Quality
 - [x] Use `vector<Bug*>` (not objects)

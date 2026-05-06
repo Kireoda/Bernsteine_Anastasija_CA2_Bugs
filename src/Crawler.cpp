@@ -27,7 +27,7 @@ void Crawler::move() {
     position = {x, y};
 
     // Record path
-    path.push_back(position);
+    addToPath(x, y);
 }
 
 std::string Crawler::getType() const {

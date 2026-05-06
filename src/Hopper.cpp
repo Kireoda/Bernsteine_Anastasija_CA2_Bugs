@@ -45,5 +45,5 @@ void Hopper::move() {
     }
 
     position = {x, y};
-    path.push_back(position);
+    addToPath(x, y);
 }
