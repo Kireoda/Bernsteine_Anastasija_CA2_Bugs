@@ -2,30 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 
-#include "Crawler.h"
-#include "Hopper.h"
-#include "Direction.h"
 #include "Board.h"
-
-void printCrawlerState(int step, const Crawler& c) {
-    std::cout << "Step " << step << "\n";
-    std::cout << "  Position: ("
-              << c.getPosition().first << ", "
-              << c.getPosition().second << ")\n";
-    std::cout << "  Direction: "
-              << directionToString(c.getDirection()) << "\n\n";
-}
-
-void printHopperState(int step, const Hopper& h) {
-    std::cout << "Step " << step << "\n";
-    std::cout << "  Position: ("
-              << h.getPosition().first << ", "
-              << h.getPosition().second << ")\n";
-    std::cout << "  Direction: "
-              << directionToString(h.getDirection()) << "\n";
-    std::cout << "  Hop Length: "
-              << h.getHopLength() << "\n\n";
-}
 
 void showMenu() {
     std::cout << "\nMenu\n";
@@ -37,10 +14,6 @@ void showMenu() {
     std::cout << "6. Display all cells\n";
     std::cout << "7. Run simulation\n";
     std::cout << "8. Exit\n";
-    std::cout << "9. Test crawler\n";
-    std::cout << "10. Test hopper\n";
-    std::cout << "11. Test fights\n";
-    std::cout << "12. Test dead bug behaviour\n";
     std::cout << "Choose option: ";
 }
 
@@ -104,51 +77,6 @@ int main() {
             case 8:
                 board.writeLifeHistoryToFile();
                 std::cout << "Exiting...\n";
-                break;
-
-            case 9: {
-                std::cout << "\nCrawler test\n\n";
-
-                Crawler crawler(101, 0, 0, Direction::North, 10);
-
-                for (int i = 1; i <= 10; i++) {
-                    crawler.move();
-                    printCrawlerState(i, crawler);
-                }
-
-                std::cout << "Path:\n";
-                int i = 0;
-                for (const auto& pos : crawler.getPath()) {
-                    std::cout << "  " << i++
-                              << ": (" << pos.first << ", " << pos.second << ")\n";
-                }
-                break;
-            }
-
-            case 10: {
-                std::cout << "\nHopper test\n\n";
-
-                Hopper hopper(201, 5, 5, Direction::East, 10, 3);
-
-                for (int i = 1; i <= 5; i++) {
-                    hopper.move();
-                    printHopperState(i, hopper);
-                }
-
-                std::cout << "Path:\n";
-                int i = 0;
-                for (const auto& pos : hopper.getPath()) {
-                    std::cout << "  " << i++
-                              << ": (" << pos.first << ", " << pos.second << ")\n";
-                }
-                break;
-            }
-            case 11:
-                board.testFights();
-                break;
-
-            case 12:
-                board.testDeadBehavior();
                 break;
 
             default:
