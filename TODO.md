@@ -157,9 +157,9 @@
     - [x] Final status (Alive / Eaten by X)
 ---
 ## 13. Utility Functions
-- [ ] Move `buildCellMap()` from `public` to `private` in Board.h (no internal pointers exposed)
-- [ ] Delete copy constructor and assignment operator for Board (`= delete`) to avoid shallow copying
-- [ ] Replace `rand()` for damage in fights with `std::uniform_int_distribution` (consistent with shuffle generator)
+- [x] Move `buildCellMap()` from `public` to `private` in Board.h (no internal pointers exposed)
+- [x] Delete copy constructor and assignment operator for Board (`= delete`) to avoid shallow copying
+- [x] Replace `rand()` for damage in fights with `std::uniform_int_distribution` (consistent with shuffle generator)
 ---
 ## 14. Testing & Edge Cases
 - [x] Test file loading
@@ -172,13 +172,13 @@
 - [ ] Use `addToPath()` inside Crawler, Hopper, Teleporter `move()` methods instead of `path.push_back` directly
 - [ ] Run Valgrind or AddressSanitizer – confirm zero memory leaks
 ---
-## 15. Code Quality (Marks!)
+## 15. Code Quality
 - [x] Use `vector<Bug*>` (not objects)
 - [x] Separate `.h` and `.cpp`
-- [ ] Clean variable names
-- [ ] Avoid duplicate code (DRY)
-- [ ] Use `const` where possible
-- [ ] Add comments where needed
+- [x] Clean variable names
+- [x] Avoid duplicate code (DRY)
+- [x] Use `const` where possible
+- [x] Add comments where needed
 ---
 ## 16. Deliverables
 - [ ] Screencast (≤5 min):

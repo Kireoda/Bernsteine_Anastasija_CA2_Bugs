@@ -9,10 +9,14 @@
 class Board {
 private:
     std::vector<Bug*> bugs;
+
+    // Groups alive bugs by board cell for displaying and fighting.
     std::map<std::pair<int, int>, std::vector<Bug *> > buildCellMap() const;
 
 public:
     Board();
+
+    // Board owns raw Bug pointers, so copying would duplicate ownership.
     Board(const Board&) = delete;
     Board& operator=(const Board&) = delete;
     ~Board();

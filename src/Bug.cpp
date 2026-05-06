@@ -9,7 +9,7 @@ Bug::Bug(int id, int x, int y, Direction dir, int health)
 
 Bug::~Bug() {}
 
-bool Bug::isWayBlocked() {
+bool Bug::isWayBlocked() const {
     int x = position.first;
     int y = position.second;
 

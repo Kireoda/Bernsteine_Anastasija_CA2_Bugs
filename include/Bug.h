@@ -28,7 +28,7 @@ public:
     virtual std::string getType() const = 0;
 
     // Common logic
-    bool isWayBlocked();
+    bool isWayBlocked() const;
 
     // Getters
     int getId() const;

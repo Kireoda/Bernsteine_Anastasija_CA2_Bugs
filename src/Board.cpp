@@ -20,6 +20,7 @@ Board::~Board() {
     clear();
 }
 
+// Builds a temporary lookup of alive bugs in each occupied cell.
 std::map<std::pair<int,int>, std::vector<Bug*>> Board::buildCellMap() const {
     std::map<std::pair<int,int>, std::vector<Bug*>> cellMap;
 
@@ -33,6 +34,7 @@ std::map<std::pair<int,int>, std::vector<Bug*>> Board::buildCellMap() const {
     return cellMap;
 }
 
+// Moves all alive bugs except one randomly frozen bug, then resolves collisions.
 void Board::tapBoard() {
     if (bugs.empty()) {
         std::cout << "No bugs loaded\n";
@@ -69,6 +71,7 @@ void Board::tapBoard() {
     std::cout << "Tap complete - bugs have moved \n";
 }
 
+// Deletes all dynamically allocated bugs owned by the board.
 void Board::clear() {
     for (auto bug : bugs) {
         delete bug;
@@ -177,6 +180,8 @@ void Board::findBugById(int id) const {
 
     std::cout << "Bug with ID " << id << " not found\n";
 }
+
+// Prints a simple 10x10 view of currently occupied cells.
 void Board::displayCells() const {
     if (bugs.empty()) {
         std::cout << "No bugs loaded\n";
@@ -209,6 +214,7 @@ void Board::displayCells() const {
     }
 }
 
+// Handles fights between bugs that share the same cell.
 void Board::resolveFights() {
     auto cellMap = buildCellMap();
 
@@ -265,6 +271,7 @@ void Board::resolveFights() {
     }
 }
 
+// Simple manual test to check that dead bugs do not move after tapping.
 void Board::testDeadBehavior() {
     if (bugs.empty()) {
         std::cout << "No bugs loaded\n";
@@ -297,6 +304,7 @@ void Board::testDeadBehavior() {
               << (deadBug->isAlive() ? "Alive" : "Dead") << "\n";
 }
 
+// Simple manual test that forces bugs together and runs fight resolution.
 void Board::testFights() {
     if (bugs.size() < 3) {
         std::cout << "Need at least 3 bugs\n";
@@ -324,6 +332,7 @@ void Board::testFights() {
     displayAllBugs();
 }
 
+// Prints each bug's path and final alive/dead status.
 void Board::displayLifeHistory() const {
     if (bugs.empty()) {
         std::cout << "No bugs loaded\n";
@@ -367,6 +376,7 @@ int Board::countAlive() const {
     return count;
 }
 
+// Runs the game until only one bug is left alive.
 void Board::runSimulation() {
     if (bugs.empty()) {
         std::cout << "No bugs loaded\n";
@@ -410,6 +420,7 @@ void Board::runSimulation() {
     }
 }
 
+// Saves each bug's path and final status to a timestamped output file.
 void Board::writeLifeHistoryToFile() const {
 
     // Get current time
