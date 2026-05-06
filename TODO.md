@@ -181,14 +181,14 @@
 - [x] Add comments where needed
 ---
 ## 16. Deliverables
-- [ ] Screencast (≤5 min):
-    - [ ] App working
-    - [ ] Code walkthrough
-    - [ ] Say name + class
-- [ ] Zip project folder:
+- [x] Screencast (≤5 min):
+    - [x] App working
+    - [x] Code walkthrough
+    - [x] Say name + class
+- [x] Zip project folder:
   `Lastname_Firstname_CA2_Bugs`
-- [ ] Zip file:
+- [x] Zip file:
   `Lastname_Firstname.zip`
-- [ ] Include CA cover sheet (PDF)
-- [ ] Upload to Moodle before deadline
+- [x] Include CA cover sheet (PDF)
+- [x] Upload to Moodle before deadline
 ---
